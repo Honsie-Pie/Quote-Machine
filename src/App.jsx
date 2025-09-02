@@ -11,49 +11,48 @@ const PHASES = {
   FILTERS: "filters"
 };
 
-const BACKGROUNDPROPS = " no-repeat fixed center";
 const BGURL = '/src/imgs/bgs/';
-const THUMBURL = 'imgs/thumbs/'
+const THUMBURL = '/src/imgs/thumbs/'
 
 const BGLIST = [
   {
-    url: `url('${BGURL}city.jpg')${BACKGROUNDPROPS}`,
+    url: `url('${BGURL}city.jpg')`,
     thumb: `${THUMBURL}cityT.jpg`
   },
   {
-    url: `url('${BGURL}education.jpg')${BACKGROUNDPROPS}`,
+    url: `url('${BGURL}education.jpg')`,
     thumb: `${THUMBURL}educationT.jpg`
   },
   {
-    url: `url('${BGURL}film.jpg')${BACKGROUNDPROPS}`,
+    url: `url('${BGURL}film.jpg')`,
     thumb: `${THUMBURL}filmT.jpg`
   },
   {
-    url: `url('${BGURL}literature.jpg')${BACKGROUNDPROPS}`,
+    url: `url('${BGURL}literature.jpg')`,
     thumb: `${THUMBURL}literatureT.jpg`
   },
   {
-    url: `url('${BGURL}love.jpg')${BACKGROUNDPROPS}`,
+    url: `url('${BGURL}love.jpg')`,
     thumb: `${THUMBURL}loveT.jpg`
   },
   {
-    url: `url('${BGURL}motivation.jpg')${BACKGROUNDPROPS}`,
+    url: `url('${BGURL}motivation.jpg')`,
     thumb: `${THUMBURL}motivationT.jpg`
   },
   {
-    url: `url('${BGURL}science.jpg')${BACKGROUNDPROPS}`,
+    url: `url('${BGURL}science.jpg')`,
     thumb: `${THUMBURL}scienceT.jpg`
   },
   {
-    url: `url('${BGURL}religion.jpg')${BACKGROUNDPROPS}`,
+    url: `url('${BGURL}religion.jpg')`,
     thumb: `${THUMBURL}religionT.jpg`
   },
   {
-    url: `url('${BGURL}sport.jpg')${BACKGROUNDPROPS}`,
+    url: `url('${BGURL}sport.jpg')`,
     thumb: `${THUMBURL}sportT.jpg`
   },
   {
-    url: `url('${BGURL}work.jpg')${BACKGROUNDPROPS}`,
+    url: `url('${BGURL}work.jpg')`,
     thumb: `${THUMBURL}workT.jpg`
   }
   ];
@@ -65,13 +64,13 @@ function App() {
   console.log(curBg)
 
   return (
-    <div className="app" style={{background: `${curBg}`}}>
+    <div className="app" style={{backgroundImage: `${curBg}`}}>
       {phase === PHASES.QUOTE ?
       <Quotebox />
       : phase === PHASES.LOADING 
       ? <p>loading</p>
       : phase === PHASES.BACKGROUNDS
-      ? <Backgrounds url={curBg}/>
+      ? <Backgrounds url={curBg} backgrounds={BGLIST} setCurBg={setCurBg}/>
       : phase === PHASES.FILTERS
       ? <Filters /> : <p>Error</p>}
       <button onClick={() => setPhase(PHASES.FILTERS)}>Filters</button>

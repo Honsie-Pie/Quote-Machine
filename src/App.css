@@ -20,6 +20,12 @@
   justify-content:center;
   gap: 2em;
 
+  /*
+  place Background properties aside from URL below
+  */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 
