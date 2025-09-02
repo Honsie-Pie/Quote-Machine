@@ -1,3 +1,7 @@
+/*
+Universal
+*/
+
 *, *::after, *::before{
   margin:0;
   padding:0;
@@ -10,6 +14,10 @@
   font-size: 62.5%;
 }
 
+/*
+
+*/
+
 .app{
   height: 100vh;
   width:100%;
@@ -20,6 +28,137 @@
   justify-content:center;
   gap: 2em;
 
+  /*
+  place Background properties aside from URL below
+  */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
+
+.box{
+  padding: 3em 3em 3em 3em;
+  border-radius: 1.5em;
+  background-color:rgba(250,250,250, 0.7);
+
+  position:relative;
+  z-index:1;
+  max-height: 85%;
+
+  /*Flex */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3em;
+}
+
+/*Buttons container*/
+
+.controls{
+  width: 100%;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/*
+Buttons
+*/
+
+button{
+  background-color: white;
+  border-radius: 5px;
+  height: 2em;
+  padding: 0.2em 0.75em;
+  font-size: 1rem;
+}
+
+button:active{
+  color:white;
+  background-color:black;
+}
+
+/*
+Temp stuff
+*/
+
+.main-controls{
+  position:relative;
+  z-index:0;
+}
+
+/*
+Background selection
+*/
+
+.bg-select{
+  background-color: aliceblue;
+  width: 636px;
+  height: 70%;
+
+  padding: 1em 0 1em 0;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2em;
+
+  overflow-x:hidden;
+  overflow-y:scroll;
+
+}
+
+/*BG thumbs*/
+
+.bg-thumb{
+  border: 3px solid black;
+  /*Flex stuff*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-thumb > img{
+  height: 108px;
+  width: 192px;
+}
+
+/*
+Background transitions
+*/
+
+.screen{
+  height:100%;
+  width:100%;
+  background-color:rgba(9,9,12,0);
+  position: absolute;
+  z-index: 0;
+}
+
+.fadein{
+  animation-name:fadein;
+  animation-duration:1s;
+}
+
+@keyframes fadein{
+  0%{
+    background-color:rgba(9,9,12,0);
+  }
+  20%{
+    background-color:rgba(9,9,12,1);
+  }30%{
+    background-color:rgba(9,9,12,1);
+  }
+  100%{
+    background-color:rgba(9,9,12,0);
+  }
+}
+
+/*
+Responsiveness
+*/
 
 
