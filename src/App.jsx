@@ -58,19 +58,38 @@ const BGLIST = [
   ];
 
 function App() {
+  //App state
   const [phase, setPhase] = useState(PHASES.QUOTE);
   const [curBg, setCurBg] = useState(BGLIST[Math.floor(Math.random() * BGLIST.length)].url);
+  const [fading, setFading] = useState(false);
 
-  console.log(curBg)
+
+  //Fade animation
+  function toggleFading(){
+    setFading((prevValue) => !prevValue);
+    const myTimeout = setTimeout(redo, 500);
+    function redo(){
+    setFading((prevValue) => !prevValue);
+    }
+  }
+
+  function toggleBackground(bg){
+    toggleFading();
+    const myTimeout = setTimeout(changeBg, 300);
+    function changeBg(){
+      setCurBg(bg);
+    }
+  }
 
   return (
     <div className="app" style={{backgroundImage: `${curBg}`}}>
+      <div className={fading ? "screen fadein" : "screen"}></div>
       {phase === PHASES.QUOTE ?
       <Quotebox />
       : phase === PHASES.LOADING 
       ? <p>loading</p>
       : phase === PHASES.BACKGROUNDS
-      ? <Backgrounds url={curBg} backgrounds={BGLIST} setCurBg={setCurBg}/>
+      ? <Backgrounds url={curBg} backgrounds={BGLIST} toggleBackground={toggleBackground}/>
       : phase === PHASES.FILTERS
       ? <Filters /> : <p>Error</p>}
       <button onClick={() => setPhase(PHASES.FILTERS)}>Filters</button>
