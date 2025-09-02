@@ -92,9 +92,12 @@ function App() {
       ? <Backgrounds url={curBg} backgrounds={BGLIST} toggleBackground={toggleBackground}/>
       : phase === PHASES.FILTERS
       ? <Filters /> : <p>Error</p>}
-      <button onClick={() => setPhase(PHASES.FILTERS)}>Filters</button>
-      <button onClick={() => setPhase(PHASES.BACKGROUNDS)}>Backgrounds</button>
-      <button onClick={() => setPhase(PHASES.QUOTE)}>Quotes</button>
+      <div className="main-controls">
+        <button onClick={() => setPhase(PHASES.FILTERS)}>Filters</button>
+        <button onClick={() => setPhase(PHASES.BACKGROUNDS)}>Backgrounds</button>
+        <button onClick={() => setPhase(PHASES.QUOTE)}>Quotes</button>
+      </div>
+      
     </div>
   )
 }
