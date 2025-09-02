@@ -12,7 +12,7 @@ const PHASES = {
 };
 
 const BACKGROUNDPROPS = " no-repeat fixed center";
-const BGURL = 'imgs/bgs/';
+const BGURL = '/src/imgs/bgs/';
 const THUMBURL = 'imgs/thumbs/'
 
 const BGLIST = [
@@ -65,7 +65,7 @@ function App() {
   console.log(curBg)
 
   return (
-    <div className="app">
+    <div className="app" style={{background: `${curBg}`}}>
       {phase === PHASES.QUOTE ?
       <Quotebox />
       : phase === PHASES.LOADING 
