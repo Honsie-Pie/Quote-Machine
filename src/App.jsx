@@ -89,7 +89,7 @@ function App() {
       : phase === PHASES.LOADING 
       ? <p>loading</p>
       : phase === PHASES.BACKGROUNDS
-      ? <Backgrounds url={curBg} backgrounds={BGLIST} toggleBackground={toggleBackground}/>
+      ? <Backgrounds url={curBg} backgrounds={BGLIST} toggleBackground={toggleBackground} setPhase={setPhase}/>
       : phase === PHASES.FILTERS
       ? <Filters /> : <p>Error</p>}
       <div className="main-controls">

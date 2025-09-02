@@ -53,6 +53,33 @@ Universal
   gap: 3em;
 }
 
+/*Buttons container*/
+
+.controls{
+  width: 100%;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/*
+Buttons
+*/
+
+button{
+  background-color: white;
+  border-radius: 5px;
+  height: 2em;
+  padding: 0.2em 0.75em;
+  font-size: 1rem;
+}
+
+button:active{
+  color:white;
+  background-color:black;
+}
+
 /*
 Temp stuff
 */
@@ -68,10 +95,10 @@ Background selection
 
 .bg-select{
   background-color: aliceblue;
-  width: 700px;
+  width: 636px;
   height: 70%;
 
-  padding: 3em 1em 3em 3em;
+  padding: 1em 0 1em 0;
 
   display: flex;
   flex-direction: row;
@@ -82,6 +109,7 @@ Background selection
   overflow-y:scroll;
 
 }
+
 /*BG thumbs*/
 
 .bg-thumb{
