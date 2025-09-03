@@ -64,6 +64,7 @@ function App() {
   const [curBg, setCurBg] = useState(BGLIST[Math.floor(Math.random() * BGLIST.length)].url);
   const [fading, setFading] = useState(false);
   const [tags, setTags] = useState([]);
+  const [appliedFilters, setAppliedFilters] = useState([]);
 
 
   //Fetching tags
@@ -87,6 +88,27 @@ function App() {
     } catch (error) {
       console.error(error.message);
     }
+  }
+
+  //Applying filter
+  function toggleFilter(id){
+    const updatedFilters = [...tags];
+    updatedFilters.map((tag) => tag.id === id ? tag.active = !tag.active : tag);
+    setTags(updatedFilters);
+  }
+
+  //Removing all filters
+  function clearFilters(){
+    const updatedFilters = [...tags];
+    const updatedUpdatedFilters = updatedFilters.map((tag) => {
+      return {
+        active: false,
+        id: tag.id,
+        name: tag.name,
+        slug: tag.slug,
+      };
+    })
+    setTags(updatedUpdatedFilters);
   }
 
 
@@ -123,12 +145,11 @@ function App() {
       : phase === PHASES.BACKGROUNDS
       ? <Backgrounds url={curBg} backgrounds={BGLIST} toggleBackground={toggleBackground} setPhase={setPhase}/>
       : phase === PHASES.FILTERS
-      ? <Filters /> : <p>Error</p>}
+      ? <Filters tags={tags} toggleFilter={toggleFilter} clearFilters={clearFilters}/> : <p>Error</p>}
       <div className="main-controls">
         <button onClick={() => setPhase(PHASES.FILTERS)}>Filters</button>
         <button onClick={() => setPhase(PHASES.BACKGROUNDS)}>Backgrounds</button>
         <button onClick={() => setPhase(PHASES.QUOTE)}>Quotes</button>
-        <button onClick={() => console.log(tags)}>Tags</button>
       </div>
       
     </div>
