@@ -13,6 +13,7 @@ const PHASES = {
 
 const BGURL = '/src/imgs/bgs/';
 const THUMBURL = '/src/imgs/thumbs/'
+const TAGSURL = 'https://api.quotable.io/tags'
 
 const BGLIST = [
   {
@@ -62,6 +63,31 @@ function App() {
   const [phase, setPhase] = useState(PHASES.QUOTE);
   const [curBg, setCurBg] = useState(BGLIST[Math.floor(Math.random() * BGLIST.length)].url);
   const [fading, setFading] = useState(false);
+  const [tags, setTags] = useState([]);
+
+
+  //Fetching tags
+  async function fetchTags(){
+    try {
+      const response = await fetch(TAGSURL);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      const tasg = result.map((tag) => {
+        return {
+          id: tag._id,
+          name: tag.name,
+          slug: tag.slug,
+          active: false
+        }
+      });
+      setTags([...tasg]);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
 
 
   //Fade animation
@@ -81,6 +107,12 @@ function App() {
     }
   }
 
+  //Effect(s)
+  useEffect(() => {
+    fetchTags();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="app" style={{backgroundImage: `${curBg}`}}>
       <div className={fading ? "screen fadein" : "screen"}></div>
@@ -96,6 +128,7 @@ function App() {
         <button onClick={() => setPhase(PHASES.FILTERS)}>Filters</button>
         <button onClick={() => setPhase(PHASES.BACKGROUNDS)}>Backgrounds</button>
         <button onClick={() => setPhase(PHASES.QUOTE)}>Quotes</button>
+        <button onClick={() => console.log(tags)}>Tags</button>
       </div>
       
     </div>
