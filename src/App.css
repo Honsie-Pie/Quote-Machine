@@ -93,11 +93,15 @@ Temp stuff
 Quotebox
 */
 .quote-content{
-  font-size: 4rem;
+  font-size: 3rem;
+}
+
+.quote-author::before{
+  content: '-'
 }
 
 .quote-author{
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 /*
