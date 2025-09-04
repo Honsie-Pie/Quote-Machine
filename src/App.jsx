@@ -76,7 +76,7 @@ function App() {
       }
   
       const result = await response.json();
-      const tasg = result.map((tag) => {
+      const tasg = result.filter((tag) => tag.slug !== 'athletics').map((tag) => {
         return {
           id: tag._id,
           name: tag.name,
@@ -139,7 +139,7 @@ function App() {
     <div className="app" style={{backgroundImage: `${curBg}`}}>
       <div className={fading ? "screen fadein" : "screen"}></div>
       {phase === PHASES.QUOTE ?
-      <Quotebox />
+      <Quotebox tags={tags}/>
       : phase === PHASES.LOADING 
       ? <p>loading</p>
       : phase === PHASES.BACKGROUNDS

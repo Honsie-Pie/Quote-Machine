@@ -92,7 +92,13 @@ Temp stuff
 /*
 Quotebox
 */
+.quote-content{
+  font-size: 4rem;
+}
 
+.quote-author{
+  font-size: 3rem;
+}
 
 /*
 Background selection

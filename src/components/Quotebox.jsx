@@ -1,15 +1,16 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-const QUOTESURL = "https://api.quotable.io/random";
+const QUOTESURL = "https://api.quotable.io/random?tags=";
 
 export default function Quotebox({ tags }) {
   const [quote, setQuote] = useState({});
 
   //Fetch quote
   async function fetchQuote(){
+    const FILTERS = tags.filter((tag) => tag.active === true).map((tag) => tag.slug).join(',');
     try {
-      const response = await fetch(QUOTESURL);
+      const response = await fetch(`${QUOTESURL}${FILTERS}`);
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
