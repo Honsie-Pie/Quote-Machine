@@ -145,7 +145,7 @@ function App() {
       : phase === PHASES.BACKGROUNDS
       ? <Backgrounds url={curBg} backgrounds={BGLIST} toggleBackground={toggleBackground} setPhase={setPhase}/>
       : phase === PHASES.FILTERS
-      ? <Filters tags={tags} toggleFilter={toggleFilter} clearFilters={clearFilters}/> : <p>Error</p>}
+      ? <Filters tags={tags} toggleFilter={toggleFilter} clearFilters={clearFilters} setPhase={setPhase}/>: <p>Error</p>}
       <div className="main-controls">
         <button onClick={() => setPhase(PHASES.FILTERS)}>Filters</button>
         <button onClick={() => setPhase(PHASES.BACKGROUNDS)}>Backgrounds</button>

@@ -8,7 +8,8 @@ export default function Quotebox({ tags }) {
 
   //Fetch quote
   async function fetchQuote(){
-    const FILTERS = tags.filter((tag) => tag.active === true).map((tag) => tag.slug).join(',');
+    const FILTERS = tags.filter((tag) => tag.active === true).map((tag) => tag.slug).join('|');
+    console.log(`${QUOTESURL}${FILTERS}`)
     try {
       const response = await fetch(`${QUOTESURL}${FILTERS}`);
       if (!response.ok) {
@@ -27,14 +28,27 @@ export default function Quotebox({ tags }) {
     }
   }
 
+  //Copy quote to clipboard
+  function handleCopy(){
+    navigator.clipboard.writeText(`"${quote.content}."\n-${quote.author}`);
+  }
+
   useEffect(() => {
     fetchQuote();
   }, []);
 
   return (
     <div className="box">
-        <p className="quote-content">{quote.content}</p>
+      <div className="quote">
+        <i className="fa-solid fa-quote-left quotation-mark"></i>
+        <p className={`quote-content ${quote.length < 120 ? "short" :
+                                quote.length > 210 ? "long" : "medium"}`}>{quote.content}</p>
         <p className="quote-author">{quote.author}</p>
+      </div>
+      <div className='controls'>
+        <button onClick={() => handleCopy()}><i className="fa-solid fa-copy"></i></button>
+        <button onClick={() => fetchQuote()}>New Quote</button>
+      </div>
     </div>
   )
 }
