@@ -28,6 +28,11 @@ export default function Quotebox({ tags }) {
     }
   }
 
+  //Copy quote to clipboard
+  function handleCopy(){
+    navigator.clipboard.writeText(`"${quote.content}."\n-${quote.author}`);
+  }
+
   useEffect(() => {
     fetchQuote();
   }, []);
@@ -41,6 +46,7 @@ export default function Quotebox({ tags }) {
         <p className="quote-author">{quote.author}</p>
       </div>
       <div className='controls'>
+        <button onClick={() => handleCopy()}><i className="fa-solid fa-copy"></i></button>
         <button onClick={() => fetchQuote()}>New Quote</button>
       </div>
     </div>
