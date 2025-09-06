@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Filters({ tags, toggleFilter, clearFilters, setPhase }) {
+export default function Filters({ tags, toggleFilter, clearFilters, setPhase, PHASES }) {
   return (
     <div className="box">
         <div className="tag-select">
@@ -11,7 +11,7 @@ export default function Filters({ tags, toggleFilter, clearFilters, setPhase }) 
         </div>
         <div className="controls">
             <button onClick={() => clearFilters()}><i className="fa-solid fa-trash"></i></button>
-            <button onClick={() => setPhase('quote')}>Apply</button>
+            <button onClick={() => setPhase(PHASES.QUOTE)}>Apply</button>
         </div>
     </div>
   )

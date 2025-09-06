@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 const QUOTESURL = "https://api.quotable.io/random?tags=";
 
-export default function Quotebox({ tags }) {
+export default function Quotebox({ tags, PHASES, setPhase }) {
   const [quote, setQuote] = useState({});
 
   //Fetch quote
@@ -41,6 +41,9 @@ export default function Quotebox({ tags }) {
         <p className="quote-author">{quote.author}</p>
       </div>
       <div className='controls'>
+        <button onClick={() => setPhase(PHASES.FILTERS)}><i className="fa-solid fa-filter"></i></button>
+        <button onClick={() => setPhase(PHASES.BACKGROUNDS)}><i className="fa-solid fa-image"></i></button>
+        <button onClick={() => handleCopy()}><i className="fa-solid fa-copy"></i></button>
         <button onClick={() => fetchQuote()}>New Quote</button>
       </div>
     </div>
