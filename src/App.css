@@ -133,6 +133,31 @@ Conditional
 }
 
 /*
+Filters
+*/
+.tag-select{
+  background-color: aliceblue;
+  list-style-type:none;
+  width: 600px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-content:start;
+  gap: 0.5em;
+}
+
+.filter-label{
+  font-size: 1.1rem;
+  font-family: sans-serif;
+  display:flex;
+  justify-content: flex-start;
+  gap: 0.2em;
+}
+
+.filter-label input{
+  padding-right: 1em;
+}
+
+/*
 Background selection
 */
 
