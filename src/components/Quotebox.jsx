@@ -36,7 +36,7 @@ export default function Quotebox({ tags, PHASES, setPhase }) {
     <div className="box">
       <div className="quote">
         <i className="fa-solid fa-quote-left quotation-mark"></i>
-        <p className={`quote-content ${quote.length < 120 ? "short" :
+        <p className={`quote-content ${quote.length < 100 ? "short" :
                                 quote.length > 210 ? "long" : "medium"}`}>{quote.content}</p>
         <p className="quote-author">{quote.author}</p>
       </div>

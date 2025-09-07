@@ -37,19 +37,19 @@ Universal
 }
 
 .box{
-  padding: 3em 3em 3em 3em;
+  padding: 2em 3em;
   border-radius: 1.5em;
   background-color:rgba(250,250,250, 0.7);
 
   position:relative;
   z-index:1;
-  max-height: 85%;
+  max-height: 80%;
 
   /*Flex */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 3em;
 }
 
@@ -95,6 +95,8 @@ Quotebox
 
 .quote{
   max-width: 900px;
+  display: flex;
+  flex-direction: column;
 }
 
 .quotation-mark{
@@ -104,6 +106,23 @@ Quotebox
 .quote-content{
   font-size: 3rem;
   font-family: Oswald, sans-serif;
+  width: 100%;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.quote-author::before{
+  content: '-'
+}
+
+.quote-author{
+  margin-top: 0.5em;
+  padding-left: 0.5em;
+
+  font-size: 2rem;
+  font-style: italic;
+  text-align: left;
+  font-family: "Source Sans 3", sans-serif;
 }
 
 /*
@@ -121,16 +140,6 @@ Conditional
   font-size: 2.5rem;
 }
 
-.quote-author::before{
-  content: '-'
-}
-
-.quote-author{
-  font-size: 2rem;
-  font-style: italic;
-  text-align: left;
-  font-family: "Source Sans 3", sans-serif;
-}
 
 /*
 Filters
@@ -228,5 +237,93 @@ Background transitions
 /*
 Responsiveness
 */
+
+@media screen and (max-width: 600px){
+
+  .box{
+    gap: 2em;
+  }
+
+  button{
+    border-radius: 5px;
+    height: 3em;
+    padding: 0.2em 0.75em;
+    font-size: 1rem;
+  }
+
+  /*
+  Quotebosx
+  */
+
+  .quote{
+    max-width: 500px;
+  }
+
+  .quotation-mark{
+    font-size: 2.5rem;
+  }
+
+  /*
+  Conditional
+  */
+  .short{
+    font-size: 2.5rem;
+  }
+
+  .medium{
+    font-size: 2.25rem;
+  }
+
+  .long{
+    font-size: 2rem;
+  }
+
+  /*
+  Author
+  */
+  .quote-author{
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: left;
+    font-family: "Source Sans 3", sans-serif;
+  }
+
+  /*
+  Filters
+  */
+  .tag-select{
+    width: 500px;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1.5em;
+    column-gap: 0.5em;
+    overflow-y: scroll;
+  }
+
+  .tag-select li{
+    height: 3em;
+  }
+
+  .filter-label{
+    font-size: 1.5rem;
+    gap: 0.2em;
+  }
+
+  .filter-label input{
+    margin-left: 1em;
+    margin-right: 1em;
+    transform: scale(2);
+  }
+
+  /*
+  Background selection
+  */
+
+  .bg-select{
+    width: 434px;
+    height: 80%;
+    gap: 3em;
+  }
+
+}
 
 
