@@ -178,15 +178,16 @@ Background selection
 
 .bg-select{
   background-color: aliceblue;
-  width: 636px;
-  height: 70%;
+  width: 100%;
+  height: 85%;
 
   padding: 1em 0 1em 0;
 
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 2em;
+  justify-content: space-evenly;
+  gap: 1.5em;
 
   overflow-x:hidden;
   overflow-y:scroll;
