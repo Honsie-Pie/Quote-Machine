@@ -139,19 +139,13 @@ function App() {
     <div className="app" style={{backgroundImage: `${curBg}`}}>
       <div className={fading ? "screen fadein" : "screen"}></div>
       {phase === PHASES.QUOTE ?
-      <Quotebox tags={tags}/>
+      <Quotebox tags={tags} PHASES={PHASES} setPhase={setPhase}/>
       : phase === PHASES.LOADING 
       ? <p>loading</p>
       : phase === PHASES.BACKGROUNDS
-      ? <Backgrounds url={curBg} backgrounds={BGLIST} toggleBackground={toggleBackground} setPhase={setPhase}/>
+      ? <Backgrounds url={curBg} backgrounds={BGLIST} toggleBackground={toggleBackground} setPhase={setPhase} PHASES={PHASES}/>
       : phase === PHASES.FILTERS
-      ? <Filters tags={tags} toggleFilter={toggleFilter} clearFilters={clearFilters} setPhase={setPhase}/>: <p>Error</p>}
-      <div className="main-controls">
-        <button onClick={() => setPhase(PHASES.FILTERS)}>Filters</button>
-        <button onClick={() => setPhase(PHASES.BACKGROUNDS)}>Backgrounds</button>
-        <button onClick={() => setPhase(PHASES.QUOTE)}>Quotes</button>
-      </div>
-      
+      ? <Filters tags={tags} toggleFilter={toggleFilter} clearFilters={clearFilters} setPhase={setPhase} PHASES={PHASES}/>: <p>Error</p>}
     </div>
   )
 }
