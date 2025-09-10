@@ -27,18 +27,13 @@ Mobile first
   align-items:center;
   justify-content:center;
 
-  /*
-  place Background properties aside from URL below
-  */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
 }
 
 .box{
-  /*
-  padding: 2em 3em;
-  */
+
   padding: 2em;
   border-radius: 1.5em;
   background-color:rgba(250,250,250, 0.7);
@@ -47,7 +42,7 @@ Mobile first
   z-index:1;
   min-height: 20%;
   max-height: 80%;
-  width: calc(100vw - 2em);
+  max-width: calc(100vw - 2em);
 
   /*Flex */
   display: flex;
@@ -92,10 +87,6 @@ Quotebox
 */
 
 .quote{
-  /*
-  max-width: 900px;
-  min-width: 700px;
-  */
   max-width: 496px;
   min-width: 300px;
   display: flex;
@@ -181,7 +172,7 @@ Background selection
   width: 100%;
   height: 85%;
 
-  padding: 1em 0 1em 0;
+  padding: 1em 0;
 
   display: flex;
   flex-direction: row;
@@ -198,6 +189,8 @@ Background selection
 
 .bg-thumb{
   border: 3px solid black;
+  height: 108px;
+  width: 192px;
   /*Flex stuff*/
   display: flex;
   flex-direction: column;
@@ -206,8 +199,8 @@ Background selection
 }
 
 .bg-thumb > img{
-  height: 108px;
-  width: 192px;
+  height: 100%;
+  width: 100%;
 }
 
 /*
@@ -244,7 +237,158 @@ Background transitions
 /*
 Responsiveness
 */
+@media screen and (min-width:577px) {
+
+  .box{
+    padding: 2em 3em;
+    max-width: calc(100vw - 4em);
+    background-color:aqua;
+  }
+
+  .quote{
+    /*
+    max-width: 900px;
+    min-width: 700px;
+    */
+    max-width: 650px;
+    min-width: 300px;
+  }
+
+  .tag-select{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bg-select{
+    max-width: 646px;
+    height: 85%;
+  }
+
+  .quotation-mark{
+    font-size: 2.75rem;
+  }
+
+  .short{
+    font-size: 2.75rem;
+  }
+  
+  .medium{
+    font-size: 2.25rem;
+  }
+  
+  .long{
+    font-size: 2rem;
+  }
+
+  .quote-author{
+    font-size: 1.75rem;
+    padding-left:0;
+  }
+
+}
+
+@media screen and (min-width:768px) and (max-width:991px) {
+
+  .box{
+    padding: 2em 3em;
+    max-width: calc(100vw - 4em);
+    background-color:goldenrod;
+  }
+
+  .quote{
+    /*
+    max-width: 900px;
+    min-width: 700px;
+    */
+    max-width: 650px;
+    min-width: 300px;
+  }
+
+  .tag-select{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bg-select{
+    max-width: 646px;
+    height: 85%;
+    justify-content: flex-start;
+    padding-left: 2em;
+  }
+
+  .quotation-mark{
+    font-size: 3rem;
+  }
+
+  .short{
+    font-size: 3rem;
+  }
+  
+  .medium{
+    font-size: 2.5rem;
+  }
+  
+  .long{
+    font-size: 2.2rem;
+  }
+
+  .quote-author{
+    font-size: 1.75rem;
+    padding-left:0;
+  }
+
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+
+  .box{
+    background-color:aquamarine;
+  }
+
+  .quote{
+    max-width: 750px;
+    min-width: 500px;
+  }
+
+  .tag-select{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .quotation-mark{
+    font-size: 3rem;
+  }
+
+  .short{
+    font-size: 3.5rem;
+  }
+  
+  .medium{
+    font-size: 2.75rem;
+  }
+  
+  .long{
+    font-size: 2.5rem;
+  }
+
+  .quote-author{
+    font-size: 2rem;
+  }
+
+}
+
 @media screen and (min-width:1200px) {
+
+  .box{
+    padding: 2em 3em;
+  }
+
+  .quote{
+    max-width: 900px;
+    min-width: 700px;
+  }
+
+  .quotation-mark{
+    font-size: 3.5rem;
+  }
+
   .short{
     font-size: 4rem;
   }
