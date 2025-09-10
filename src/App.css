@@ -246,7 +246,6 @@ Responsiveness
   .box{
     padding: 2em 3em;
     max-width: calc(100vw - 4em);
-    background-color:aqua;
   }
 
   .quote{
@@ -291,7 +290,6 @@ Responsiveness
   .box{
     padding: 2em 3em;
     max-width: calc(100vw - 4em);
-    background-color:goldenrod;
   }
 
   button{
@@ -338,10 +336,6 @@ Responsiveness
 }
 
 @media screen and (min-width:992px) and (max-width:1199px) {
-
-  .box{
-    background-color:aquamarine;
-  }
 
   button{
     height: 2em;
