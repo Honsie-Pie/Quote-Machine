@@ -46,10 +46,15 @@ export default function Quotebox({ tags, PHASES, setPhase }) {
         <p className="quote-author">{quote.author}</p>
       </div>
       <div className='controls'>
-        <button onClick={() => setPhase(PHASES.FILTERS)}><i className="fa-solid fa-filter"></i></button>
-        <button onClick={() => setPhase(PHASES.BACKGROUNDS)}><i className="fa-solid fa-image"></i></button>
-        <button onClick={() => handleCopy()}><i className="fa-solid fa-copy"></i></button>
-        <button onClick={() => fetchQuote()}>New Quote</button>
+        <div className="settings">
+          <button onClick={() => setPhase(PHASES.FILTERS)}><i className="fa-solid fa-filter"></i></button>
+          <button onClick={() => setPhase(PHASES.BACKGROUNDS)}><i className="fa-solid fa-image"></i></button>
+        </div>
+        <div>
+          <button><i className="fa-solid fa-share"></i></button>
+          <button onClick={() => handleCopy()}><i className="fa-solid fa-copy"></i></button>
+          <button onClick={() => fetchQuote()}>New Quote</button>
+        </div>
       </div>
     </div>
   )
