@@ -18,7 +18,7 @@ export default function SocialMenu({ quote }) {
             :
             <ul className="social-list">
             <li><button onClick={() => setHide(true)}><a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"><i class="fa-brands fa-facebook"></i> Share</a></button></li>
-            <li><button onClick={() => setHide(true)}><a href='https://twitter.com/intent/tweet?text=' target='_blank'><i class="fa-brands fa-x-twitter"></i> Tweet</a></button></li>
+            <li><button onClick={() => setHide(true)}><a href={`https://twitter.com/intent/tweet?text="${quote.text}." -${quote.author}`} target='_blank'><i class="fa-brands fa-x-twitter"></i> Tweet</a></button></li>
             <li><button onClick={() => handleCopy()}><i className="fa-solid fa-copy"></i> Copy</button></li>
             </ul>
             }
