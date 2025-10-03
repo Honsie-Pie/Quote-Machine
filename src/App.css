@@ -62,6 +62,35 @@ Mobile first
   justify-content:space-between;
 }
 
+.settings{
+  display: flex;
+}
+
+.social-list{
+  position:absolute;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+li {
+  width: 100%;
+}
+
+li button{
+  width: 100%;
+}
+
+a{
+  text-decoration:none;
+}
+
+
+/*Share*/
+ul, li{
+  list-style-type: none;
+}
+
 /*
 Buttons
 */
