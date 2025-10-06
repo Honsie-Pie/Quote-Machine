@@ -29,11 +29,6 @@ export default function Quotebox({ tags, PHASES, setPhase }) {
     }
   }
 
-  //Copy quote to clipboard
-  function handleCopy(){
-    navigator.clipboard.writeText(`"${quote.content}."\n-${quote.author}`);
-  }
-
   useEffect(() => {
     fetchQuote();
   }, []);

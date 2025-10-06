@@ -17,51 +17,71 @@ const TAGSURL = 'https://api.quotable.io/tags'
 
 const BGLIST = [
   {
-    url: `url('${BGURL}city.jpg')`,
-    thumb: `${THUMBURL}cityT.jpg`
+    url: `${BGURL}city.jpg`,
+    urlTall: `${BGURL}cityTall.jpg`,
+    thumb: `${THUMBURL}cityT.jpg`,
+    thumbTall: `${THUMBURL}cityTTall.jpg`
   },
   {
-    url: `url('${BGURL}education.jpg')`,
-    thumb: `${THUMBURL}educationT.jpg`
+    url: `${BGURL}education.jpg`,
+    urlTall: `${BGURL}educationTall.jpg`,
+    thumb: `${THUMBURL}educationT.jpg`,
+    thumbTall: `${THUMBURL}educationTTall.jpg`,
   },
   {
-    url: `url('${BGURL}film.jpg')`,
-    thumb: `${THUMBURL}filmT.jpg`
+    url: `${BGURL}film.jpg`,
+    urlTall: `${BGURL}filmTall.jpg`,
+    thumb: `${THUMBURL}filmT.jpg`,
+    thumbTall: `${THUMBURL}filmTTall.jpg`,
   },
   {
-    url: `url('${BGURL}literature.jpg')`,
-    thumb: `${THUMBURL}literatureT.jpg`
+    url: `${BGURL}literature.jpg`,
+    urlTall: `${BGURL}literatureTall.jpg`,
+    thumb: `${THUMBURL}literatureT.jpg`,
+    thumbTall: `${THUMBURL}literatureTTall.jpg`,
   },
   {
-    url: `url('${BGURL}love.jpg')`,
-    thumb: `${THUMBURL}loveT.jpg`
+    url: `${BGURL}love.jpg`,
+    urlTall: `${BGURL}loveTall.jpg`,
+    thumb: `${THUMBURL}loveT.jpg`,
+    thumbTall: `${THUMBURL}loveTTall.jpg`
   },
   {
-    url: `url('${BGURL}motivation.jpg')`,
-    thumb: `${THUMBURL}motivationT.jpg`
+    url: `${BGURL}motivation.jpg`,
+    urlTall: `${BGURL}motivationTall.jpg`,
+    thumb: `${THUMBURL}motivationT.jpg`,
+    thumbTall: `${THUMBURL}motivationTTall.jpg`,
   },
   {
-    url: `url('${BGURL}science.jpg')`,
-    thumb: `${THUMBURL}scienceT.jpg`
+    url: `${BGURL}science.jpg`,
+    urlTall: `${BGURL}scienceTall.jpg`,
+    thumb: `${THUMBURL}scienceT.jpg`,
+    thumbTall: `${THUMBURL}scienceTTall.jpg`
   },
   {
-    url: `url('${BGURL}religion.jpg')`,
-    thumb: `${THUMBURL}religionT.jpg`
+    url: `${BGURL}religion.jpg`,
+    urlTall: `${BGURL}religionTall.jpg`,
+    thumb: `${THUMBURL}religionT.jpg`,
+    thumbTall: `${THUMBURL}religionTTall.jpg`,
   },
   {
-    url: `url('${BGURL}sport.jpg')`,
-    thumb: `${THUMBURL}sportT.jpg`
+    url: `${BGURL}sport.jpg`,
+    urlTall: `${BGURL}sportTall.jpg`,
+    thumb: `${THUMBURL}sportT.jpg`,
+    thumbTall: `${THUMBURL}sportTTall.jpg`
   },
   {
-    url: `url('${BGURL}work.jpg')`,
-    thumb: `${THUMBURL}workT.jpg`
+    url: `${BGURL}work.jpg`,
+    urlTall: `${BGURL}workTall.jpg`,
+    thumb: `${THUMBURL}workT.jpg`,
+    thumbTall: `${THUMBURL}workTTall.jpg`
   }
   ];
 
 function App() {
   //App state
   const [phase, setPhase] = useState(PHASES.QUOTE);
-  const [curBg, setCurBg] = useState(BGLIST[Math.floor(Math.random() * BGLIST.length)].url);
+  const [curBg, setCurBg] = useState(BGLIST[Math.floor(Math.random() * BGLIST.length)]);
   const [fading, setFading] = useState(false);
   const [tags, setTags] = useState([]);
   const [appliedFilters, setAppliedFilters] = useState([]);
@@ -136,7 +156,14 @@ function App() {
   }, []);
 
   return (
-    <div className="app" style={{backgroundImage: `${curBg}`}}>
+    <div className="app">
+      <picture>
+      <source media="screen and (min-width:768px)" srcSet={`${curBg.url}`} />
+      <source media="screen and (min-width:200px)" srcSet={`${curBg.urlTall}`} />
+      <img className="bgImg"
+      src={`${curBg.urlTall}`}
+      />
+      </picture>
       <div className={fading ? "screen fadein" : "screen"}></div>
       {phase === PHASES.QUOTE ?
       <Quotebox tags={tags} PHASES={PHASES} setPhase={setPhase}/>
