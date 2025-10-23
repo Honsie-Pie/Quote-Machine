@@ -1,17 +1,12 @@
-import React from 'react'
+import React from 'react';
+import BgThumb from './BgThumb';
 
 export default function Backgrounds({ backgrounds, toggleBackground, setPhase, PHASES }) {
   return (
     <div className="box">
         <div className="bg-select">
             {backgrounds.map((b) =>
-              <div className="bg-thumb" key={b.thumb} onClick={()=>toggleBackground(b)}>
-                <picture>
-                  <source media="screen and (min-width:768px)" srcSet={`${b.thumb}`} />
-                  <source media="screen and (min-width:200px)" srcSet={`${b.thumbTall}`} />
-                  <img src={b.thumbTall} />
-                </picture>
-              </div>
+              <BgThumb b={b} toggleBackground={toggleBackground}/>
             )}
         </div>
         <div className="controls">
