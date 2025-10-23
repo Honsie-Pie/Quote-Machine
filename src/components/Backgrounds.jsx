@@ -5,8 +5,8 @@ export default function Backgrounds({ backgrounds, toggleBackground, setPhase, P
   return (
     <div className="box">
         <div className="bg-select">
-            {backgrounds.map((b) =>
-              <BgThumb b={b} toggleBackground={toggleBackground}/>
+            {backgrounds.map((bg) =>
+              <BgThumb bg={bg} toggleBackground={toggleBackground}/>
             )}
         </div>
         <div className="controls">

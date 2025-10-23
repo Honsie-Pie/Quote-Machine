@@ -1,13 +1,11 @@
 import React from 'react'
 
-export default function BgThumb({ b, toggleBackground }) {
+export default function BgThumb({ bg, toggleBackground }) {
   return (
-    <div className="bg-thumb" key={b.thumb} onClick={()=>toggleBackground(b)}>
-        <picture>
-            <source media="screen and (min-width:768px)" srcSet={`${b.thumb}`} />
-            <source media="screen and (min-width:200px)" srcSet={`${b.thumbTall}`} />
-            <img src={b.thumbTall} />
-        </picture>
-    </div>
+    <picture className="bg-thumb" key={bg.thumb} onClick={()=>toggleBackground(bg)}>
+        <source media="screen and (min-width:768px)" srcSet={`${bg.thumb}`} />
+        <source media="screen and (min-width:200px)" srcSet={`${bg.thumbTall}`} />
+        <img src={bg.thumbTall} />
+    </picture>
   )
 }
