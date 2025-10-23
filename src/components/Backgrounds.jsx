@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Backgrounds({ url, backgrounds, toggleBackground, setPhase, PHASES }) {
+export default function Backgrounds({ backgrounds, toggleBackground, setPhase, PHASES }) {
   return (
     <div className="box">
         <div className="bg-select">

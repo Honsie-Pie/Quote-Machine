@@ -3,6 +3,7 @@ import './App.css'
 import Backgrounds from './components/Backgrounds';
 import Filters from './components/Filters';
 import Quotebox from './components/Quotebox';
+import BackgroundImage from './components/BackgroundImage';
 
 const PHASES = {
   LOADING: "loading",
@@ -141,6 +142,9 @@ function App() {
     }
   }
 
+  /*
+  Changing BG image
+  */
   function toggleBackground(bg){
     toggleFading();
     const myTimeout = setTimeout(changeBg, 300);
@@ -157,13 +161,7 @@ function App() {
 
   return (
     <div className="app">
-      <picture>
-      <source media="screen and (min-width:768px)" srcSet={`${curBg.url}`} />
-      <source media="screen and (min-width:200px)" srcSet={`${curBg.urlTall}`} />
-      <img className="bgImg"
-      src={`${curBg.urlTall}`}
-      />
-      </picture>
+      <BackgroundImage curBg={curBg}/>
       <div className={fading ? "screen fadein" : "screen"}></div>
       {phase === PHASES.QUOTE ?
       <Quotebox tags={tags} PHASES={PHASES} setPhase={setPhase}/>
