@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
+import { PHASES } from '../App';
 
-export default function Filters({ tags, toggleFilter, clearFilters, setPhase, PHASES }) {
+export default function Filters({ tags, toggleFilter, clearFilters, setPhase }) {
   return (
     <div className="box">
         <ul className="tag-select">

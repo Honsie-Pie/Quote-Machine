@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default function BackgroundImage({ curBg }) {
   return (
     <picture>

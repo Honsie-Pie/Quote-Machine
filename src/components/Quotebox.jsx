@@ -1,10 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import SocialMenu from './SocialMenu';
+import { PHASES } from '../App';
 
 const QUOTESURL = "https://api.quotable.io/random?tags=";
 
-export default function Quotebox({ tags, PHASES, setPhase }) {
+export default function Quotebox({ tags, setPhase }) {
   const [quote, setQuote] = useState({});
 
   //Fetch quote

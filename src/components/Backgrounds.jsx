@@ -1,7 +1,8 @@
 import React from 'react';
 import BgThumb from './BgThumb';
+import { PHASES } from '../App';
 
-export default function Backgrounds({ backgrounds, toggleBackground, setPhase, PHASES }) {
+export default function Backgrounds({ backgrounds, toggleBackground, setPhase }) {
   return (
     <div className="box">
         <div className="bg-select">

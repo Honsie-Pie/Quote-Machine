@@ -4,8 +4,9 @@ import Backgrounds from './components/Backgrounds';
 import Filters from './components/Filters';
 import Quotebox from './components/Quotebox';
 import BackgroundImage from './components/BackgroundImage';
+import Screen from './components/Screen';
 
-const PHASES = {
+export const PHASES = {
   LOADING: "loading",
   QUOTE: "quote",
   BACKGROUNDS: "backgrounds",
@@ -161,15 +162,15 @@ function App() {
   return (
     <div className="app">
       <BackgroundImage curBg={curBg}/>
-      <div className={fading ? "screen fadein" : "screen"}></div>
+      <Screen fading={fading}/>
       {phase === PHASES.QUOTE ?
-      <Quotebox tags={tags} PHASES={PHASES} setPhase={setPhase}/>
+      <Quotebox tags={tags} setPhase={setPhase}/>
       : phase === PHASES.LOADING 
       ? <p>loading</p>
       : phase === PHASES.BACKGROUNDS
-      ? <Backgrounds url={curBg} backgrounds={BGLIST} toggleBackground={toggleBackground} setPhase={setPhase} PHASES={PHASES}/>
+      ? <Backgrounds url={curBg} backgrounds={BGLIST} toggleBackground={toggleBackground} setPhase={setPhase}/>
       : phase === PHASES.FILTERS
-      ? <Filters tags={tags} toggleFilter={toggleFilter} clearFilters={clearFilters} setPhase={setPhase} PHASES={PHASES}/>: <p>Error</p>}
+      ? <Filters tags={tags} toggleFilter={toggleFilter} clearFilters={clearFilters} setPhase={setPhase}/>: <p>Error</p>}
     </div>
   )
 }
