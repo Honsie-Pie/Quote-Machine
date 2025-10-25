@@ -1,13 +1,14 @@
 import React from 'react';
 import BgThumb from './BgThumb';
 import { PHASES } from '../App';
+import Image from './Image';
 
 export default function Backgrounds({ backgrounds, toggleBackground, setPhase }) {
   return (
     <div className="box">
         <div className="bg-select">
             {backgrounds.map((bg) =>
-              <BgThumb bg={bg} toggleBackground={toggleBackground}/>
+              <Image image={bg} toggleFn={toggleBackground} type="thumb"/>
             )}
         </div>
         <div className="controls">

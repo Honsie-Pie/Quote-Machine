@@ -5,6 +5,7 @@ import Filters from './components/Filters';
 import Quotebox from './components/Quotebox';
 import BackgroundImage from './components/BackgroundImage';
 import Screen from './components/Screen';
+import Image from './components/Image';
 
 export const PHASES = {
   LOADING: "loading",
@@ -161,7 +162,7 @@ function App() {
 
   return (
     <div className="app">
-      <BackgroundImage curBg={curBg}/>
+      <Image image={curBg} toggleFn={toggleBackground} type={"bg"}/>
       <Screen fading={fading}/>
       {phase === PHASES.QUOTE ?
       <Quotebox tags={tags} setPhase={setPhase}/>
