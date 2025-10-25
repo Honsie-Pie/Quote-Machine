@@ -85,7 +85,6 @@ function App() {
   const [curBg, setCurBg] = useState(BGLIST[Math.floor(Math.random() * BGLIST.length)]);
   const [fading, setFading] = useState(false);
   const [tags, setTags] = useState([]);
-  const [appliedFilters, setAppliedFilters] = useState([]);
 
 
   //Fetching tags
