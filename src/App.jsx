@@ -3,7 +3,6 @@ import './App.css'
 import Backgrounds from './components/Backgrounds';
 import Filters from './components/Filters';
 import Quotebox from './components/Quotebox';
-import BackgroundImage from './components/BackgroundImage';
 import Screen from './components/Screen';
 import Image from './components/Image';
 

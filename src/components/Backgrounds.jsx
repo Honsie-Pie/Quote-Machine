@@ -1,5 +1,4 @@
 import React from 'react';
-import BgThumb from './BgThumb';
 import { PHASES } from '../App';
 import Image from './Image';
 
