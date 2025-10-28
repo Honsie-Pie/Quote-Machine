@@ -168,7 +168,7 @@ function App() {
       : phase === PHASES.LOADING 
       ? <p>loading</p>
       : phase === PHASES.BACKGROUNDS
-      ? <Backgrounds url={curBg} backgrounds={BGLIST} toggleBackground={toggleBackground} setPhase={setPhase}/>
+      ? <Backgrounds backgrounds={BGLIST} toggleBackground={toggleBackground} setPhase={setPhase}/>
       : phase === PHASES.FILTERS
       ? <Filters tags={tags} toggleFilter={toggleFilter} clearFilters={clearFilters} setPhase={setPhase}/>: <p>Error</p>}
     </div>

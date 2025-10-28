@@ -2,6 +2,7 @@ import React from 'react';
 import SocialMenu from './SocialMenu';
 import { PHASES } from '../App';
 import { useQuote } from '../hooks/useQuote.js'
+import ControlButton from './ControlButton.jsx';
 
 export default function Quotebox({ tags, setPhase }) {
   const [quote, fetchQuote] = useQuote(tags);
@@ -16,12 +17,12 @@ export default function Quotebox({ tags, setPhase }) {
       </div>
       <div className='controls'>
         <div className="settings">
-          <button onClick={() => setPhase(PHASES.FILTERS)}><i className="fa-solid fa-filter"></i></button>
-          <button onClick={() => setPhase(PHASES.BACKGROUNDS)}><i className="fa-solid fa-image"></i></button>
+          <ControlButton type="icon" func={() => setPhase(PHASES.FILTERS)} message="fa-filter"/>
+          <ControlButton type="icon" func={() => setPhase(PHASES.BACKGROUNDS)} message="fa-image"/>
         </div>
         <div className='settings'>
           <SocialMenu quote={quote}/>
-          <button onClick={() => fetchQuote(tags)}>New Quote</button>
+          <ControlButton type="message" func={() => fetchQuote(tags)} message="New Quote" />
         </div>
       </div>
     </div>

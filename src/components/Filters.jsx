@@ -1,5 +1,6 @@
 import React from 'react';
 import { PHASES } from '../App';
+import ControlButton from './ControlButton';
 
 export default function Filters({ tags, toggleFilter, clearFilters, setPhase }) {
   return (
@@ -11,8 +12,8 @@ export default function Filters({ tags, toggleFilter, clearFilters, setPhase }) 
                 </label></li>)}
         </ul>
         <div className="controls">
-            <button onClick={() => clearFilters()}><i className="fa-solid fa-trash"></i></button>
-            <button onClick={() => setPhase(PHASES.QUOTE)}>Apply</button>
+            <ControlButton type="icon" func={() => clearFilters()} message="fa-trash"/>
+            <ControlButton type="message" func={() => setPhase(PHASES.QUOTE)} message="Apply" />
         </div>
     </div>
   )
